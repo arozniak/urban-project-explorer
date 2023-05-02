@@ -1,0 +1,57 @@
+# query GetProjects {
+#   urbanModel(urbanModelId: "642003449ecb4c20a26e19d7bc9ccaf1") {
+query GetProjects($modelId: PortalItemId!) {
+  urbanModel(urbanModelId: $modelId) {
+    urbanDatabase {
+      projects(paging: { limit: 200 }) {
+        attributes {
+          GlobalID
+          Address
+          ContextWebsceneItemId
+          CustomID
+          Description
+          EndDate
+          EventName
+          Featured
+          Locked
+          OwnerName
+          PublicFeedbackEnabled
+          PublicFeedbackEndDate
+          StartDate
+          Status
+          Thumbnail
+          WebpageUrl
+        }
+        geometry {
+          rings
+          spatialReference {
+            wkid
+          }
+        }
+        statusType {
+          attributes {
+            Label
+            Icon
+          }
+        }
+      }
+    }
+  }
+}
+
+# query GetProjectsInGeometry($geoFilter: GeometryFilterInput) {
+#   urbanModel(urbanModelId: "642003449ecb4c20a26e19d7bc9ccaf1") {
+query GetProjectsInGeometry(
+  $geoFilter: GeometryFilterInput
+  $modelId: PortalItemId!
+) {
+  urbanModel(urbanModelId: $modelId) {
+    urbanDatabase {
+      projects(geometryFilter: $geoFilter) {
+        attributes {
+          GlobalID
+        }
+      }
+    }
+  }
+}

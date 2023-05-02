@@ -1,0 +1,1 @@
+export const GEOJSON_SPATIAL_REFERENCE = 4326;

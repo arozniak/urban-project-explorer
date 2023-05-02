@@ -1,0 +1,10 @@
+schema: "https://urban-api.arcgis.com/graphql"
+documents: "src/**/*.graphql"
+generates:
+  src/generated/graphql.d.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-graphql-files-modules"
+      - "typescript-document-nodes"
+      - "typescript-urql"
